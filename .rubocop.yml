@@ -1,0 +1,132 @@
+# cf.
+# http://nttpc.now.tl/ac2014/?p=20#toc_4
+# https://github.com/cookpad/styleguide/blob/master/ruby.ja.md
+# https://gist.github.com/onk/38bfbd78899d892e0e83
+
+# メソッド呼び出しの行から1段階インデントする
+Style/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
+# 日本語でのコメントを許可
+Style/AsciiComments:
+  Enabled: false
+
+# モジュール名::クラス名の定義を許可
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+# コメントのないクラス・モジュールを許可
+Style/Documentation:
+  Enabled: false
+
+# !! 演算子を許可
+Style/DoubleNegation:
+  Enabled: false
+
+# `sprintf`, `format` ではなく String#% を使う
+Style/FormatString:
+  EnforcedStyle: percent
+
+# 7行以上の場合ガード節を使用するようチェック
+Style/GuardClause:
+  MinBodyLength: 7
+
+# 1行だけのif/unlessを許可
+Style/IfUnlessModifier:
+  Enabled: false
+
+# 複数行での「lambda」で「->」による省略記法を許可
+Style/Lambda:
+  Enabled: false
+
+# 12桁以上の数値にはアンダースコアをつける
+Style/NumericLiterals:
+  MinDigits: 12
+
+# 正規表現参照の $1, $2,... を許可
+Style/PerlBackrefs:
+  Enabled: false
+
+# Exception.new(arg) を渡す raise を許可
+Style/RaiseArgs:
+  Enabled: false
+
+# ローカル変数とメソッド呼び出しを区別しやすくするため self. をつけてもよい
+Style/RedundantSelf:
+  Enabled: false
+
+# fail/raiseを使い分けなくてもよい
+Style/SignalException:
+  Enabled: false
+
+# メソッド引数の初期値の周りにはスペースを入れる
+Style/SpaceAroundEqualsInParameterDefault:
+  EnforcedStyle: space
+
+# ブロックの直前にはスペースを入れる
+Style/SpaceBeforeBlockBraces:
+  EnforcedStyle: space
+
+# Rangeリテラルの内側にスペースを許可
+Style/SpaceInsideRangeLiteral:
+  Enabled: false
+
+# 可能な限りシングルクォートを使う
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+
+Style/TrailingCommaInLiteral:
+  EnforcedStyleForMultiline: no_comma
+  SupportedStyles:
+    - comma
+    - consistent_comma
+    - no_comma
+
+# 何もしないrescueを許可
+Lint/HandleExceptions:
+  Enabled: false
+
+# Date.today はtimezoneを考慮しないので使わない。current, yesterday, tomorrow は許可
+Rails/Date:
+  EnforcedStyle: flexible
+
+# validates_xxx_of を許可
+Rails/Validation:
+  Enabled: false
+
+# 代入、メソッド呼び出し、条件文の合計数
+Metrics/AbcSize:
+  Max: 50
+
+# 条件文の数
+Metrics/CyclomaticComplexity:
+  Max: 15
+
+# 1行の文字数
+Metrics/LineLength:
+  Max: 160
+
+# メソッドの行数
+Metrics/MethodLength:
+  Max: 30
+
+# 条件分岐の数
+Metrics/PerceivedComplexity:
+  Max: 8
+
+# クラスの長さ
+Metrics/ClassLength:
+  Max: 200
+
+
+Rails:
+  Enabled: true
+AllCops:
+  Exclude:
+    - db/**/*
+    - db_sa/**/*
+    - bin/**
+    - tmp/**/*
+    - vendor/**/*
+  DisplayCopNames: true
+  TargetRubyVersion: 2.2
