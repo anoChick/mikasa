@@ -1,0 +1,16 @@
+machine:
+  timezone:
+    Asia/Tokyo
+  ruby:
+    version: 2.3.0
+
+dependencies:
+  pre:
+    - sudo pip install awscli
+  bundler:
+    without: [production]
+
+test:
+  override:
+    - bundle exec rubocop
+    - bundle exec rspec spec
