@@ -15,6 +15,8 @@ gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 
 group :development, :test do
+  gem 'capybara'
+  gem 'poltergeist'
   gem 'rspec', '~> 3.4.0'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
