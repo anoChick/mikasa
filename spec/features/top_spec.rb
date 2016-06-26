@@ -1,11 +1,9 @@
 require 'rails_helper'
-
+require 'aws-sdk'
 RSpec.feature 'top', type: :feature do
-  scenario 'User creates a new widget' do
+  scenario 'トップページが閲覧できる' do
     visit '/'
-    p ENV
-    p ENV['CIRCLE_BUILD_NUM']
-    p page.save_screenshot('screenshot.png')
     expect(page).to have_text("トップページ")
+    upload_evidence_image('ID0001')
   end
 end
