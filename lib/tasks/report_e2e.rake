@@ -6,7 +6,7 @@ namespace :report_e2e do
     p 'E2Eレポート'
     reports = {}
     branch_name = ENV['CIRCLE_BRANCH'] || 'default'
-    current_build_num = ENV['CIRCLE_BUILD_NUM'] || '0'
+    current_build_num = (ENV['CIRCLE_BUILD_NUM'] || 0).to_i
     before_build_num = 0
     before_build_files = []
     s3 = Aws::S3::Client.new
