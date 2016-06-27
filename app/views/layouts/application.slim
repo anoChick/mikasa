@@ -8,6 +8,6 @@ html
     = csrf_meta_tags
   body class="#{controller_name}_controller #{action_name}_action"
     = render 'layouts/header'
-    .container
+    #main-containter.container
       = yield
     = render 'layouts/footer'

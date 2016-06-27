@@ -13,6 +13,7 @@ gem 'dotenv-rails'
 gem 'slim-rails'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
+gem 'rmagick'
 
 group :development, :test do
   gem 'pry-rails'
