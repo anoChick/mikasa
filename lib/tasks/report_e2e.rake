@@ -1,4 +1,3 @@
-require 'RMagick'
 include Magick
 namespace :report_e2e do
   desc 'run'
@@ -32,8 +31,8 @@ namespace :report_e2e do
         next
       end
 
-      current = RMagick::Image.from_blob(current_image_file.body.read)[0]
-      before = RMagick::Image.from_blob(before_image_file.body.read)[0]
+      current = Image.from_blob(current_image_file.body.read)[0]
+      before = Image.from_blob(before_image_file.body.read)[0]
       diff_image = current.composite(before, Magick::NorthWestGravity, Magick::DifferenceCompositeOp)
       report = {}
       diff = current.difference before
