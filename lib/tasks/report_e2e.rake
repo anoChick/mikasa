@@ -24,22 +24,22 @@ namespace :report_e2e do
     current_build_files.each do |current_file_path|
       identifier = File.basename(current_file_path, '.png')
       current_image_file = s3.get_object(bucket: ENV['E2E_REPORT_BUCKET'], key: "#{branch_name}/#{current_build_num}/screenshot/#{identifier}.png")
-      f = open('current_image.png', 'wb')
+      f = open('/tmp/current_image.png', 'wb')
       f.write(current_image_file.body.read)
       f.close
       begin
         before_image_file = s3.get_object(bucket: ENV['E2E_REPORT_BUCKET'], key: "#{branch_name}/#{before_build_num}/screenshot/#{identifier}.png")
-        f = open('before_image.png', 'wb')
+        f = open('/tmp/before_image.png', 'wb')
         f.write(before_image_file.body.read)
         f.close
       rescue
         next
       end
 
-      current = Image.read('before.png')[0]
-      before = Image.read('current.png')[0]
+      current = Image.read('/tmp/before.png')[0]
+      before = Image.read('/tmp/current.png')[0]
       diff_image = current.composite(before, Magick::NorthWestGravity, Magick::DifferenceCompositeOp)
-      diff_image.write('diff_image.png')
+      diff_image.write('/tmp/diff_image.png')
       report = {}
       diff = current.difference before
       report[:difference] = {
@@ -50,7 +50,7 @@ namespace :report_e2e do
       reports[identifier] = report
       s3.put_object(
         bucket: 'e2e-report',
-        body: File.open('diff_image.png'),
+        body: File.open('/tmp/diff_image.png'),
         key: "#{branch_name}/#{current_build_num}/#{identifier}_diff.png"
       )
     end
