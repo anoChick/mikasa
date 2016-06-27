@@ -14,3 +14,4 @@ test:
   override:
     - bundle exec rubocop
     - bundle exec rspec spec
+    - bundle exec rake report_e2e:run
