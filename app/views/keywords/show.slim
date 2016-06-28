@@ -1,0 +1,19 @@
+h2 =params[:q]
+.row
+  .col-md-12
+    h3 最近のニュース
+    - 3.times do |i|
+      = render partial: 'layouts/components/news', locals: {index: i}
+.row
+
+  .col-md-8
+    h3 巷の反応
+    - 7.times do |i|
+      = render partial: 'layouts/components/buzz', locals: {index: i}
+  .col-md-4
+    h3 統計情報
+    h5 Google検索
+
+    h5 Twitter
+
+    h5 ニュース記事数
