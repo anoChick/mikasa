@@ -11,7 +11,7 @@ namespace :report_e2e do
     s3 = Aws::S3::Client.new
     resp = s3.list_objects(bucket: ENV['E2E_REPORT_BUCKET'], prefix: "#{branch_name}/#{current_build_num}/screenshot/")
     current_build_files = resp.contents.map { |object| object.key.to_s }
-    current_build_num.downto(1) do |build_num|
+    (current_build_num - 1).downto(1) do |build_num|
       resp = s3.list_objects(bucket: ENV['E2E_REPORT_BUCKET'], prefix: "#{branch_name}/#{build_num}/screenshot/")
       before_build_files = resp.contents.map { |object| object.key.to_s }
       unless before_build_files.empty?
@@ -23,10 +23,8 @@ namespace :report_e2e do
     current_build_files.each do |current_file_path|
       identifier = File.basename(current_file_path, '.png')
       current_image_file = s3.get_object(bucket: ENV['E2E_REPORT_BUCKET'], key: "#{branch_name}/#{current_build_num}/screenshot/#{identifier}.png")
-
       begin
         before_image_file = s3.get_object(bucket: ENV['E2E_REPORT_BUCKET'], key: "#{branch_name}/#{before_build_num}/screenshot/#{identifier}.png")
-
       rescue
         next
       end
