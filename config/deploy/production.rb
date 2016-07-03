@@ -1,5 +1,5 @@
 server '52.68.167.116', user: 'ec2-user', roles: %w{app}
-set :ssh_options, keys: '~/.ssh/anck.pem'
+set :ssh_options, keys: '~/.ssh/metial.pem'
 # ======================
 # Defines a single server with a list of roles and multiple properties.
 # You can define all roles on a single server, or split them:

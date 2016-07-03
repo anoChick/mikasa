@@ -24,4 +24,8 @@ require 'capistrano/rails/migrations'
 # require 'capistrano/passenger'
 require 'capistrano3/unicorn'
 # Load custom tasks from `lib/capistrano/tasks` if you have any defined
+
+Rake::Task[:production].invoke
+invoke :production
+
 Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }

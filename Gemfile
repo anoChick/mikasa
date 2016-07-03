@@ -16,7 +16,6 @@ gem 'font-awesome-sass'
 gem 'rmagick'
 gem 'shoryuken', github: 'phstc/shoryuken', branch: 'master'
 
-
 group :production, :staging do
   gem 'unicorn'
   gem 'capistrano'
