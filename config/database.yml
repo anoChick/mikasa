@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
   database: mikasa_production
-  username: mikasa
-  password: <%= ENV['MIKASA_DATABASE_PASSWORD'] %>
+  username: <%= Settings.database[:user_name] %>
+  password: <%= Settings.database[:password] %>

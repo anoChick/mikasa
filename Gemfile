@@ -16,6 +16,16 @@ gem 'font-awesome-sass'
 gem 'rmagick'
 gem 'shoryuken', github: 'phstc/shoryuken', branch: 'master'
 
+
+group :production, :staging do
+  gem 'unicorn'
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-unicorn'
+end
+
 group :development, :test do
   gem 'pry-rails'
   gem 'pry-doc'
