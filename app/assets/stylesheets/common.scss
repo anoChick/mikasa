@@ -1,9 +1,23 @@
 body {
-font-family: 'Noto Sans Japanese', serif;
+  font-family: 'Noto Sans Japanese', serif;
+}
+.navbar-brand{
+  font-family: 'Baloo Da', cursive;
+  padding: 22px 16px 14px 28px;
+  font-size:36px;
+  span.accent{
+    color:$accent-color;
+  }
+  b.beta{
+    display: inline-block;
+    font-size:18px;
+    color:rgb(234, 109, 142);
+    transform:translateY(-10px) translateX(-2px);
+  }
 }
 
-#main-containter{
-  padding: 60px 0 40px 0;
+.top-container{
+  padding: 50px 0 40px 0;
 }
 
 .footer {
@@ -18,4 +32,7 @@ font-family: 'Noto Sans Japanese', serif;
       margin: 20px 0;
     }
   }
+}
+.top-contents{
+  background-color: #EDEAE3;
 }

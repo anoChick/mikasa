@@ -1,2 +1,16 @@
 .header
   nav.navbar.navbar-default.navbar-fixed-top
+    .container
+      .navbar-header.text-venter
+        a.navbar-brand(href='/') 
+          |M
+          span.accent e
+          |tial
+          b.beta β
+      .collapse.navbar-collapse
+        form.navbar-form.navbar-left role='search'
+          .input-group
+            input type="text" class="form-control" placeholder="キーワードを入力"
+              span.input-group-btn
+                button.btn.btn-default type='button'
+                  i.fa.fa-search aria-hidden="true"

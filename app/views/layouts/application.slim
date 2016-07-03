@@ -6,9 +6,10 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
+    link rel='stylesheet' href='//fonts.googleapis.com/css?family=Baloo+Da'
     link rel='stylesheet' href='//fonts.googleapis.com/earlyaccess/notosansjapanese.css'
   body class="#{controller_name}_controller #{action_name}_action"
     = render 'layouts/header'
-    #main-containter.container
-      = yield
+    
+    = yield
     = render 'layouts/footer'

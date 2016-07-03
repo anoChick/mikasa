@@ -13,6 +13,12 @@
 
 ActiveRecord::Schema.define(version: 20160628181025) do
 
+  create_table "ar_internal_metadata", primary_key: "key", force: :cascade do |t|
+    t.string   "value",      limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
   create_table "buzz_publishers", force: :cascade do |t|
     t.string   "label",      limit: 255
     t.datetime "created_at",             null: false

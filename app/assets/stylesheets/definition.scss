@@ -1,11 +1,27 @@
 //http://getbootstrap.com/customize
-$navbar-default-bg: #fff;
+$primary-color: #34302D;
+$gray:#54504D;
+$secondary-color: #EDEAE3;
+$accent-color: #86C543;
+$highlight-color:#E6E6E6;
+$base-color: #fefefe ;
+$navbar-default-bg: $base-color;
 
-$black: #222;
-$white: #f3f3f3;
+$black: $primary-color;
 
 
 //Scaffolding
-$body-bg: #fefefd;
+$body-bg: $base-color;
 
 //Navbar
+$navbar-height : 58px;
+$navbar-default-link-color:$gray;
+
+
+//Panel
+
+
+//Components
+//$border-radius-base:0px;
+//$border-radius-large:0px;
+//$border-radius-small:0px;
