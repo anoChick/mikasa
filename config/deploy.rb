@@ -37,7 +37,14 @@ set :rbenv_ruby, '2.3.0'
 namespace :deploy do
   desc 'Restart application'
   task :restart do
-    invoke 'unicorn:restart'
+    on roles(:app) do
+      with rails_env: fetch(:rails_env) do
+        within current_path do
+          execute :bundle, :exec, :rake, 'db:migrate'
+        end
+      end
+      invoke 'unicorn:restart'
+    end
   end
   desc 'Create database'
   task :db_create do
