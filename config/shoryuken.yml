@@ -1,0 +1,12 @@
+aws:
+  access_key_id:      <%= ENV['AWS_ACCESS_KEY_ID'] %>
+  secret_access_key:  <%= ENV['AWS_SECRET_ACCESS_KEY'] %>
+  region:             <%= ENV['AWS_REGION'] %>
+  receive_message:
+    attribute_names:
+      - ApproximateReceiveCount
+      - SentTimestamp
+concurrency: 4,  # The number of allocated threads to process messages. Default 25
+delay: 5,        # The delay in seconds to pause a queue when it's empty. Default 0
+queues:
+  - ["mikasa_<%= Rails.env %>_default", 1]

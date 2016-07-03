@@ -14,6 +14,7 @@ gem 'slim-rails'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'rmagick'
+gem 'shoryuken', github: 'phstc/shoryuken', branch: 'master'
 
 group :development, :test do
   gem 'pry-rails'

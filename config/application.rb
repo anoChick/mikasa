@@ -24,5 +24,7 @@ module Mikasa
 
     config.generators.template_engine = :slim
     config.autoload_paths += %W(#{config.root}/lib)
+    config.active_job.queue_adapter     = :shoryuken
+    config.active_job.queue_name_prefix = "mikasa_#{Rails.env}"
   end
 end
